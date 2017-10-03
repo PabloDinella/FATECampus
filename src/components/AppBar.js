@@ -22,7 +22,7 @@ const styles = theme => ({
   },
 })
 
-const AppBar = ({classes}) => {
+export const TopBar = ({classes}) => {
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -40,4 +40,4 @@ const AppBar = ({classes}) => {
   )
 }
 
-export default withStyles('AppBar', styles, AppBar)
+export default withStyles('TopBar', styles, TopBar)
