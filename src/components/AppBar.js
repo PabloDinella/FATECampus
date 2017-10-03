@@ -7,11 +7,10 @@ import Typography from 'material-ui/Typography'
 import Button from 'material-ui/Button'
 import IconButton from 'material-ui/IconButton'
 import MenuIcon from 'material-ui-icons/Menu'
+import SearchIcon from 'material-ui-icons/Search'
 
 const styles = theme => ({
   root: {
-    marginTop: theme.spacing.unit * 3,
-    width: '100%',
   },
   flex: {
     flex: 1,
@@ -31,9 +30,11 @@ export const TopBar = ({classes}) => {
             <MenuIcon />
           </IconButton>
           <Typography type="title" color="inherit" className={classes.flex}>
-            Title
+            Campus <small>FATEC-SP</small>
           </Typography>
-          <Button color="contrast">Login</Button>
+          <IconButton color="contrast">
+            <SearchIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
     </div>
