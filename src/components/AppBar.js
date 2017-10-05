@@ -19,6 +19,16 @@ const styles = theme => ({
     marginLeft: -12,
     marginRight: 20,
   },
+  searchInputContainer: {
+    '& input': {
+      height: '30px',
+      border: 0,
+      padding: '8px',
+      boxSizing: 'border-box',
+      color: '#fff',
+      background: 'rgba(255, 255, 255, 0.1)',
+    },
+  },
 })
 
 export const TopBar = ({classes}) => {
@@ -32,6 +42,9 @@ export const TopBar = ({classes}) => {
           <Typography type="title" color="inherit" className={classes.flex}>
             Campus <small>FATEC-SP</small>
           </Typography>
+          <div className={classes.searchInputContainer}>
+            <input type="text"/>
+          </div>
           <IconButton color="contrast">
             <SearchIcon />
           </IconButton>
