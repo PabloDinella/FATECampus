@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import TopBar from './components'
+import React, {Component} from 'react'
+import {TopBar, MapView} from './components'
 import logo from './logo.svg'
 
 class App extends Component {
@@ -8,8 +8,7 @@ class App extends Component {
       <div className="App">
         <TopBar />
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <MapView />
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
