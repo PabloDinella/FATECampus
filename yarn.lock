@@ -5384,9 +5384,9 @@ react-event-listener@^0.5.0:
     prop-types "^15.5.10"
     warning "^3.0.0"
 
-react-google-maps@^9.0.2:
-  version "9.0.2"
-  resolved "https://registry.yarnpkg.com/react-google-maps/-/react-google-maps-9.0.2.tgz#33cb5689e2b0adc551408c09c12db200c8ebebd9"
+react-google-maps@^9.2.1:
+  version "9.2.1"
+  resolved "https://registry.yarnpkg.com/react-google-maps/-/react-google-maps-9.2.1.tgz#9318a164a44a70b9aef857cdb9d0efbc5a7cd0ad"
   dependencies:
     babel-runtime "^6.11.6"
     can-use-dom "^0.1.0"
@@ -5396,7 +5396,7 @@ react-google-maps@^9.0.2:
     marker-clusterer-plus "^2.1.4"
     markerwithlabel "^2.0.1"
     prop-types "^15.5.8"
-    recompose "^0.25.0"
+    recompose "^0.26.0"
     scriptjs "^2.5.8"
     warning "^3.0.0"
 
@@ -5573,9 +5573,9 @@ recompose@^0.24.0:
     hoist-non-react-statics "^1.0.0"
     symbol-observable "^1.0.4"
 
-recompose@^0.25.0:
-  version "0.25.1"
-  resolved "https://registry.yarnpkg.com/recompose/-/recompose-0.25.1.tgz#5eb9d6cf6e25a9ffad73cbbae5658b5b55d6e728"
+recompose@^0.26.0:
+  version "0.26.0"
+  resolved "https://registry.yarnpkg.com/recompose/-/recompose-0.26.0.tgz#9babff039cb72ba5bd17366d55d7232fbdfb2d30"
   dependencies:
     change-emitter "^0.1.2"
     fbjs "^0.8.1"
