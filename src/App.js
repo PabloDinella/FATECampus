@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {TopBar, MapView} from './components'
+import {TopBar, MapView, PlacesListing} from './components'
 import logo from './logo.svg'
 
 class App extends Component {
@@ -18,9 +18,7 @@ class App extends Component {
             mapElement={<div style={{ height: `100%` }} />}
           />
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <PlacesListing />
       </div>
     )
   }

@@ -1,0 +1,256 @@
+[
+  {
+    "marker": {
+      "name": "Edifício Santiago",
+      "coords": {"lat": -23.530062, "lng": -46.632454},
+      "ref": null,
+      "floors": [
+        {
+          "label": "Térreo",
+          "places": [
+            {
+              "name": "Sala de estudos",
+              "openingHours": null
+            },
+            {
+              "name": "Biblioteca",
+              "openingHours": null
+            },
+            {
+              "name": "Secretaria Geral",
+              "openingHours": null
+            }
+          ]
+        },
+        {
+          "label": "Primeiro andar",
+          "places": [
+            {
+              "name": "Sala 10S"
+            },
+            {
+              "name": "Sala 11S"
+            },
+            {
+              "name": "Sala 12S"
+            },
+            {
+              "name": "Sala 13S"
+            },
+            {
+              "name": "Sala 14S"
+            },
+            {
+              "name": "Departamento de Tecnologia da Informação",
+              "openingHours": null
+            },
+            {
+              "name": "Departamento de Eletrônica",
+              "openingHours": null
+            },
+            {
+              "name": "Área de Matemática",
+              "openingHours": null
+            },
+            {
+              "name": "Quadros de vagas de estágio"
+            }
+          ]
+        },
+        {
+          "label": "Segundo andar",
+          "places": [
+            {
+              "name": "Sala 21S"
+            },
+            {
+              "name": "Sala 22S"
+            },
+            {
+              "name": "Laboratório de Informática 01 (azul)"
+            },
+            {
+              "name": "Laboratório de Informática 02 (verde)"
+            },
+            {
+              "name": "Laboratório de Informática 03 (amarelo)"
+            },
+            {
+              "name": "Laboratório de Informática 04"
+            },
+            {
+              "name": "Laboratório de Informática 05"
+            }
+          ]
+        },
+        {
+          "label": "Terceiro andar",
+          "places": [
+            {
+              "name": "Sala 31S"
+            },
+            {
+              "name": "Sala 32S"
+            },
+            {
+              "name": "Sala 33S"
+            },
+            {
+              "name": "Sala 34S"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "marker": {
+      "name": "Bloco A/B",
+      "coords": {"lat": -23.529217, "lng": -46.632480},
+      "ref": null,
+      "floors": [
+        {
+          "label": "Térreo",
+          "places":
+          [
+            {
+              "name": "Laboratório"
+            },
+            {
+              "name": "Departamento de Edifícios"
+            }
+          ]
+        },
+        {
+          "label": "Térreo",
+          "places":
+          [
+            {
+              "name": "Sala 11A"
+            },
+            {
+              "name": "Sala 12A"
+            },
+            {
+              "name": "Sala 13A"
+            },
+            {
+              "name": "Sala 14A"
+            },
+            {
+              "name": "Sala 15A"
+            },
+            {
+              "name": "Sala 16A"
+            },
+            {
+              "name": "Sala 17A"
+            },
+            {
+              "name": "Sala 18A"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "marker": {
+      "name": "Bloco C",
+      "coords": {"lat": -23.529591, "lng": -46.632572},
+      "ref": null,
+      "floors": [
+        {
+          "label": "térreo",
+          "places":
+          [
+            {
+              "name": "auditório"
+            }
+          ]
+        },
+        {
+          "label": "primeiro andar",
+          "places":
+          [
+            {
+              "name": "quadra polioesportiva"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "marker": {
+      "name": "Centro Paula Souza",
+      "coords": {"lat": -23.529984, "lng": -46.632901},
+      "ref": null,
+      "floors": [
+        {
+          "label": "Subsolo",
+          "places":
+          [
+            {
+              "name": "Centro Acadêmico"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "marker": {
+      "name": "Edifício Oscar Machado",
+      "coords": {"lat": -23.529700, "lng": -46.633123},
+      "ref": null,
+      "floors": [
+        {
+          "label": "Térreo",
+          "places":
+          [
+            {
+              "name": "Xerox"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "marker": {
+      "name": "Edifício Francisco Maffei",
+      "coords": {"lat": -23.528934, "lng": -46.632990},
+      "ref": null,
+      "floors": [
+        {
+          "label": "Primeiro andar",
+          "places":
+          [
+            {
+              "name": "Sala 1"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "marker": {
+      "name": "Bloco D",
+      "coords": {"lat": -23.529008, "lng": -46.632791},
+      "ref": null,
+      "floors": [
+        {
+          "label": "Térreo",
+          "places":
+          [
+            {
+              "name": "Cantina"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]
