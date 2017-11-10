@@ -3,7 +3,7 @@
     "marker": {
       "name": "Edifício Santiago",
       "coords": {"lat": -23.530062, "lng": -46.632454},
-      "ref": null,
+      "ref": "santhiago",
       "floors": [
         {
           "label": "Térreo",
@@ -107,7 +107,7 @@
     "marker": {
       "name": "Bloco A/B",
       "coords": {"lat": -23.529217, "lng": -46.632480},
-      "ref": null,
+      "ref": "blocoab",
       "floors": [
         {
           "label": "Térreo",
@@ -158,7 +158,7 @@
     "marker": {
       "name": "Bloco C",
       "coords": {"lat": -23.529591, "lng": -46.632572},
-      "ref": null,
+      "ref": "blococ",
       "floors": [
         {
           "label": "térreo",
@@ -185,7 +185,7 @@
     "marker": {
       "name": "Centro Paula Souza",
       "coords": {"lat": -23.529984, "lng": -46.632901},
-      "ref": null,
+      "ref": "centropaulasouza",
       "floors": [
         {
           "label": "Subsolo",
@@ -203,7 +203,7 @@
     "marker": {
       "name": "Edifício Oscar Machado",
       "coords": {"lat": -23.529700, "lng": -46.633123},
-      "ref": null,
+      "ref": "oscarmachado",
       "floors": [
         {
           "label": "Térreo",
@@ -221,7 +221,7 @@
     "marker": {
       "name": "Edifício Francisco Maffei",
       "coords": {"lat": -23.528934, "lng": -46.632990},
-      "ref": null,
+      "ref": "maffei",
       "floors": [
         {
           "label": "Primeiro andar",
@@ -239,7 +239,7 @@
     "marker": {
       "name": "Bloco D",
       "coords": {"lat": -23.529008, "lng": -46.632791},
-      "ref": null,
+      "ref": "blocod",
       "floors": [
         {
           "label": "Térreo",

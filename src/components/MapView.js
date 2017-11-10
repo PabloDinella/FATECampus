@@ -2,14 +2,20 @@ import React, {Component} from 'react'
 import overlayImage from '../assets/map-overlay.png'
 import {withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow, GroundOverlay} from "react-google-maps"
 
+import places from '../data/places.json'
+
 import withStyles from '../support/withStyles'
 
 class MapView extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      infoOpen: true,
+      openInfoWindow: false
     }
+  }
+
+  infoWindowOpen(ref) {
+    this.setState({openInfoWindow: ref})
   }
 
   render() {
@@ -21,15 +27,13 @@ class MapView extends Component {
     >
       {props.isMarkerShown &&
         <div>
-          <Marker position={{lat: -23.529591, lng: -46.632572}}>
-            {this.state.infoOpen && <InfoWindow><div>Informações, horário de funcionamento...</div></InfoWindow>}
-          </Marker>
-          <Marker position={{lat: -23.530062, lng: -46.632454}} />
-          <Marker position={{lat: -23.529217, lng: -46.632480}} />
-          <Marker position={{lat: -23.529984, lng: -46.632901}} />
-          <Marker position={{lat: -23.529700, lng: -46.633123}} />
-          <Marker position={{lat: -23.528934, lng: -46.632990}} />
-          <Marker position={{lat: -23.529008, lng: -46.632791}} />
+          {places.map(({marker}) => <Marker
+              key={marker.ref}
+              position={marker.coords}
+              onClick={() => this.infoWindowOpen(marker.ref)}
+            >
+            {this.state.openInfoWindow === marker.ref && <InfoWindow><div>oioi</div></InfoWindow>}
+          </Marker>)}
         </div>
       }
       <GroundOverlay
