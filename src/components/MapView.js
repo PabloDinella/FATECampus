@@ -18,25 +18,16 @@ class MapView extends Component {
     }
   }
 
-  shouldComponentUpdate(nextProps) {
-    const {defaultCenter} = this.props
-    const {panToCoords} = nextProps
-    return !_.isEmpty(panToCoords) && !_.isEqual(panToCoords, defaultCenter)
-  }
-
   componentWillReceiveProps(nextProps) {
     const {panToCoords} = nextProps
-    console.log(panToCoords);
+    const {defaultCenter} = this.props
+    if (_.isEmpty(panToCoords) || _.isEqual(panToCoords, defaultCenter)) return
     this.refs.map.panTo(panToCoords)
     this.setState({zoom: 19})
   }
 
-  infoWindowOpen(ref) {
-    this.setState({openInfoWindow: ref})
-  }
-
   render() {
-    const {defaultCenter, isMarkerShown} = this.props
+    const {defaultCenter, isMarkerShown, infoWindow, onMarkerClick} = this.props
     const {zoom} = this.state
 
     return <GoogleMap
@@ -51,10 +42,17 @@ class MapView extends Component {
           {places.map(({marker}) => <Marker
               key={marker.ref}
               position={marker.coords}
-              onClick={() => this.infoWindowOpen(marker.ref)}
+              // onClick={() => {this.infoWindowToggle(marker.ref); console.log('clicou no marker', {ref: marker.ref}, this.state.openInfoWindow);}}
+              onClick={() => {console.log(onMarkerClick);onMarkerClick({ref: marker.ref, title: marker.name, description: marker.description})}}
               icon={placeMarkerIcon}
             >
-            {this.state.openInfoWindow === marker.ref && <InfoWindow><div>oioi</div></InfoWindow>}
+            {(infoWindow.open && infoWindow.id === marker.ref)
+              && <InfoWindow>
+                <div>
+                  <h3>{infoWindow.title}</h3>
+                  <p>{infoWindow.description}</p>
+                </div>
+              </InfoWindow>}
           </Marker>)}
         </div>
       }
