@@ -24,6 +24,7 @@ class MapView extends Component {
     return <GoogleMap
       defaultZoom={18}
       defaultCenter={{lat: -23.529528, lng: -46.632384}}
+      options={{gestureHandling: 'greedy'}}
     >
       {props.isMarkerShown &&
         <div>
