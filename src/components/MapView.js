@@ -3,6 +3,8 @@ import _ from 'lodash'
 import overlayImage from '../assets/map-overlay.png'
 import {withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow, GroundOverlay} from "react-google-maps"
 
+import placeMarkerIcon from '../assets/placeMarker.svg'
+
 import places from '../data/places.json'
 
 import withStyles from '../support/withStyles'
@@ -19,7 +21,6 @@ class MapView extends Component {
   shouldComponentUpdate(nextProps) {
     const {defaultCenter} = this.props
     const {panToCoords} = nextProps
-    console.log(defaultCenter, panToCoords);
     return !_.isEmpty(panToCoords) && !_.isEqual(panToCoords, defaultCenter)
   }
 
@@ -28,10 +29,6 @@ class MapView extends Component {
     console.log(panToCoords);
     this.refs.map.panTo(panToCoords)
     this.setState({zoom: 19})
-  }
-
-  componentDidMount() {
-    console.log(this.refs.map);
   }
 
   infoWindowOpen(ref) {
@@ -55,6 +52,7 @@ class MapView extends Component {
               key={marker.ref}
               position={marker.coords}
               onClick={() => this.infoWindowOpen(marker.ref)}
+              icon={placeMarkerIcon}
             >
             {this.state.openInfoWindow === marker.ref && <InfoWindow><div>oioi</div></InfoWindow>}
           </Marker>)}

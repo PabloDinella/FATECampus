@@ -28,7 +28,7 @@ class App extends Component {
             loadingElement={<div style={{ height: `100%` }} />}
             containerElement={<div style={{ height: `400px` }} />}
             mapElement={<div style={{ height: `100%` }} />}
-            defaultCenter={{lat: -23.529528, lng: -46.632384}}
+            defaultCenter={{lat: -23.529528, lng: -46.632713}}
             panToCoords={this.state.panToCoords}
           />
         </header>
