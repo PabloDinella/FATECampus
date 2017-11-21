@@ -30,10 +30,6 @@ class PlacesListing extends Component {
     }
   }
 
-  componentDidUpdate() {
-    console.log(this.state);
-  }
-
   toggleBuildingCollapse(ref) {
     if (!ref) return
     const {uncollapsedBuilding} = this.state
@@ -47,17 +43,17 @@ class PlacesListing extends Component {
   }
 
   render() {
-    const {classes} = this.props
+    const {classes, onPlaceSelect} = this.props
 
     return <List>
       {markers.map(({marker}) => {
         const key = `${marker.ref}`
         const collapsed = this.state.uncollapsedBuilding === key
-        return [<ListItem key={key} button onClick={() => {this.toggleBuildingCollapse(key)}}>
+        return [<ListItem key={key} button onClick={() => {this.toggleBuildingCollapse(key); console.log(onPlaceSelect); onPlaceSelect(marker.coords);}}>
           <ListItemIcon><PlaceIcon /></ListItemIcon>
           <ListItemText inset primary={marker.name} />
         </ListItem>,
-        <Collapse in={collapsed} key={`${marker.ref}_sub`} transitionDuration="auto" unmountOnExit>
+        <Collapse in={collapsed} key={`${key}_sub`} transitionDuration="auto" unmountOnExit>
           {marker.floors.map(({label, places}, index) => {
             const key = `${marker.ref}-${index}`
             return [<ListItem key={key} button className={classes.nested1} onClick={() =>{this.toggleFloorCollapse(key)}}>
@@ -65,7 +61,7 @@ class PlacesListing extends Component {
               <ListItemText inset primary={label} />
               {collapsed ? <ExpandLess /> : <ExpandMore />}
             </ListItem>,
-            <Collapse in={this.state.uncollapsedFloor === key}>
+            <Collapse in={this.state.uncollapsedFloor === key} key={`${key}_sub`}>
               {places.map(({name}) => <ListItem key={`${marker.ref}_${index}_${name}`} button className={classes.nested2}>
                 <ListItemIcon><LabelIcon /></ListItemIcon>
                 <ListItemText inset primary={name} />

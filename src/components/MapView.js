@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import _ from 'lodash'
 import overlayImage from '../assets/map-overlay.png'
 import {withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow, GroundOverlay} from "react-google-maps"
 
@@ -10,8 +11,27 @@ class MapView extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      openInfoWindow: false
+      openInfoWindow: false,
+      zoom: null
     }
+  }
+
+  shouldComponentUpdate(nextProps) {
+    const {defaultCenter} = this.props
+    const {panToCoords} = nextProps
+    console.log(defaultCenter, panToCoords);
+    return !_.isEmpty(panToCoords) && !_.isEqual(panToCoords, defaultCenter)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const {panToCoords} = nextProps
+    console.log(panToCoords);
+    this.refs.map.panTo(panToCoords)
+    this.setState({zoom: 19})
+  }
+
+  componentDidMount() {
+    console.log(this.refs.map);
   }
 
   infoWindowOpen(ref) {
@@ -19,14 +39,17 @@ class MapView extends Component {
   }
 
   render() {
-    const {props} = this
+    const {defaultCenter, isMarkerShown} = this.props
+    const {zoom} = this.state
 
     return <GoogleMap
+      ref="map"
       defaultZoom={18}
-      defaultCenter={{lat: -23.529528, lng: -46.632384}}
+      defaultCenter={defaultCenter}
       options={{gestureHandling: 'greedy'}}
+      zoom={zoom ? zoom : 18}
     >
-      {props.isMarkerShown &&
+      {isMarkerShown &&
         <div>
           {places.map(({marker}) => <Marker
               key={marker.ref}
