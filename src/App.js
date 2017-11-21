@@ -8,7 +8,6 @@ class App extends Component {
       <div className="App">
         <TopBar />
         <header className="App-header">
-          {/* <MapView /> */}
           <MapView
             isMarkerShown
             googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"

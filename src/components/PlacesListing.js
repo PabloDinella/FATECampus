@@ -10,6 +10,7 @@ import PlaceIcon from 'material-ui-icons/Place';
 import LayersIcon from 'material-ui-icons/Layers';
 import ExpandLess from 'material-ui-icons/ExpandLess';
 import ExpandMore from 'material-ui-icons/ExpandMore';
+import LabelIcon from 'material-ui-icons/Label';
 
 const styles = theme => ({
   nested1: {
@@ -24,7 +25,8 @@ class PlacesListing extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      uncollapsed: null
+      uncollapsedBuilding: null,
+      uncollapsedFloor: null
     }
   }
 
@@ -32,10 +34,16 @@ class PlacesListing extends Component {
     console.log(this.state);
   }
 
-  toggleCollapse(ref) {
+  toggleBuildingCollapse(ref) {
     if (!ref) return
-    const {uncollapsed} = this.state
-    this.setState({uncollapsed: ref !== uncollapsed ? ref : null})
+    const {uncollapsedBuilding} = this.state
+    this.setState({uncollapsedBuilding: ref !== uncollapsedBuilding ? ref : null})
+  }
+
+  toggleFloorCollapse(ref) {
+    if (!ref) return
+    const {uncollapsedFloor} = this.state
+    this.setState({uncollapsedFloor: ref !== uncollapsedFloor ? ref : null})
   }
 
   render() {
@@ -43,28 +51,23 @@ class PlacesListing extends Component {
 
     return <List>
       {markers.map(({marker}) => {
-        return [<ListItem key={marker.ref} button onClick={() => {this.toggleCollapse(`${marker.ref}_sub`)}}>
-          <ListItemIcon>
-            <PlaceIcon />
-          </ListItemIcon>
+        const key = `${marker.ref}`
+        const collapsed = this.state.uncollapsedBuilding === key
+        return [<ListItem key={key} button onClick={() => {this.toggleBuildingCollapse(key)}}>
+          <ListItemIcon><PlaceIcon /></ListItemIcon>
           <ListItemText inset primary={marker.name} />
-          <ExpandMore />
-          {/* {!!floors && <ul>
-            {floors.map(({label, places}) => <ul>
-              <li>{label}</li>
-              <ul>{places.map(place => <li>{place.name}</li>)}</ul>
-            </ul>)}
-          </ul>} */}
         </ListItem>,
-        <Collapse in={this.state.uncollapsed === `${marker.ref}_sub`} key={`${marker.ref}_sub`} transitionDuration="auto" unmountOnExit>
+        <Collapse in={collapsed} key={`${marker.ref}_sub`} transitionDuration="auto" unmountOnExit>
           {marker.floors.map(({label, places}, index) => {
-            return [<ListItem key={`${marker.ref}_${index}`} button className={classes.nested1}>
+            const key = `${marker.ref}-${index}`
+            return [<ListItem key={key} button className={classes.nested1} onClick={() =>{this.toggleFloorCollapse(key)}}>
               <ListItemIcon><LayersIcon /></ListItemIcon>
               <ListItemText inset primary={label} />
-              <ExpandMore />
+              {collapsed ? <ExpandLess /> : <ExpandMore />}
             </ListItem>,
-            <Collapse>
+            <Collapse in={this.state.uncollapsedFloor === key}>
               {places.map(({name}) => <ListItem key={`${marker.ref}_${index}_${name}`} button className={classes.nested2}>
+                <ListItemIcon><LabelIcon /></ListItemIcon>
                 <ListItemText inset primary={name} />
               </ListItem>)}
             </Collapse>]
