@@ -7,8 +7,6 @@ import placeMarkerIcon from '../assets/placeMarker.svg'
 
 import places from '../data/places.json'
 
-import withStyles from '../support/withStyles'
-
 class MapView extends Component {
   constructor(props) {
     super(props)

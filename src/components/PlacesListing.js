@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 import withStyles from '../support/withStyles';
 
-import List, {ListSubheader, ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
+import List, {ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
 import Collapse from 'material-ui/transitions/Collapse';
 import PlaceIcon from 'material-ui-icons/Place';
 import LayersIcon from 'material-ui-icons/Layers';

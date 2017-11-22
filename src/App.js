@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import _ from 'lodash'
 import {TopBar, MapView, PlacesListing} from './components'
-import logo from './logo.svg'
 
 class App extends Component {
   constructor() {
@@ -28,7 +27,7 @@ class App extends Component {
   }
 
   infoWindowToggle = ({ref, title, subtitle, description}) => {
-    const {infoWindow, infoWindow: {id, open}} = this.state
+    const {infoWindow, infoWindow: {open}} = this.state
     const newInfoWindow = {id: ref, title, subtitle, description, open: true}
 
     if (_.isEqual(infoWindow, newInfoWindow)) {
@@ -53,8 +52,7 @@ class App extends Component {
           <MapView
             ref="map"
             isMarkerShown
-            googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
-            //AIzaSyDlDDOFcLe3m6SlveVfAS7dARz1ZDeNN8o
+            googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlDDOFcLe3m6SlveVfAS7dARz1ZDeNN8o&v=3.exp&libraries=geometry,drawing,places"
             loadingElement={<div style={{ height: `100%` }} />}
             containerElement={<div style={{ height: `400px` }} />}
             mapElement={<div style={{ height: `100%` }} />}
@@ -65,7 +63,7 @@ class App extends Component {
           />
         </header>
         <PlacesListing
-          onBuildingSelect={(coords, marker) => {this.onBuildingSelect(coords), this.infoWindowToggle({ref: marker.ref, title: marker.name, description: marker.description})}}
+          onBuildingSelect={(coords, marker) => {this.onBuildingSelect(coords); this.infoWindowToggle({ref: marker.ref, title: marker.name, description: marker.description})}}
           onFloorSelect={(marker) => this.infoWindowToggle({ref: marker.ref, title: marker.name, subtitle: marker.subtitle, description: marker.description})}
           onPlaceSelect={(marker) => this.infoWindowToggle({ref: marker.ref, title: marker.name, subtitle: marker.subtitle, description: marker.description})}
           searchQuery={searchQuery}
