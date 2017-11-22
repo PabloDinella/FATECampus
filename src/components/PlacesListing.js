@@ -43,17 +43,29 @@ class PlacesListing extends Component {
   }
 
   render() {
-    const {classes, onBuildingSelect, onFloorSelect, onPlaceSelect} = this.props
+    const {classes, onBuildingSelect, onFloorSelect, onPlaceSelect, searchQuery} = this.props
+
+    const newMarkers = !searchQuery ? markers : markers.map(m => {
+      const newFloors = m.floors.map(f => {
+        const newPlaces = f.places.filter(p => p.name.includes(searchQuery))
+        const newobj = _.clone(f)
+        newobj.places = newPlaces
+        return newobj
+      }).filter(f => f.places.length !== 0)
+      const newobj = _.clone(m)
+      newobj.floors = newFloors
+      return newobj
+    }).filter(m => m.floors.filter(f => f.places.length !== 0).length !== 0)
 
     return <List>
-      {markers.map(({marker}) => {
+      {newMarkers.map(marker => {
         const key = `${marker.ref}`
         const collapsed = this.state.uncollapsedBuilding === key
         return [<ListItem key={key} button onClick={() => {this.toggleBuildingCollapse(key); onBuildingSelect(marker.coords, marker);}}>
           <ListItemIcon><PlaceIcon /></ListItemIcon>
           <ListItemText inset primary={marker.name} />
         </ListItem>,
-        <Collapse in={collapsed} key={`${key}_sub`} transitionDuration="auto" unmountOnExit>
+        <Collapse in={searchQuery || collapsed} key={`${key}_sub`} transitionDuration="auto" unmountOnExit>
           {marker.floors.map(({label, places}, index) => {
             const key = `${marker.ref}-${index}`
             const collapsed = this.state.uncollapsedFloor === key
@@ -62,7 +74,7 @@ class PlacesListing extends Component {
               <ListItemText inset primary={label} />
               {collapsed ? <ExpandLess /> : <ExpandMore />}
             </ListItem>,
-            <Collapse in={collapsed} key={`${key}_sub`}>
+            <Collapse in={searchQuery || collapsed} key={`${key}_sub`}>
               {places.map(({name}) => <ListItem key={`${marker.ref}_${index}_${name}`} button className={classes.nested2} onClick={() => {onPlaceSelect(_.merge(marker, {subtitle: name, description: 'desccccc'}))}}>
                 <ListItemIcon><LabelIcon /></ListItemIcon>
                 <ListItemText inset primary={name} />

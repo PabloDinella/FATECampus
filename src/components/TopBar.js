@@ -31,7 +31,7 @@ const styles = theme => ({
   },
 })
 
-export const TopBar = ({classes}) => {
+export const TopBar = ({classes, onSearch}) => {
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -43,7 +43,7 @@ export const TopBar = ({classes}) => {
             Campus <small>FATEC-SP</small>
           </Typography>
           <div className={classes.searchInputContainer}>
-            <input type="text"/>
+            <input type="text" onChange={(event) => {onSearch(event.target.value)}} />
           </div>
           <IconButton color="contrast">
             <SearchIcon />

@@ -39,7 +39,7 @@ class MapView extends Component {
     >
       {isMarkerShown &&
         <div>
-          {places.map(({marker}) => <Marker
+          {places.map(marker => <Marker
               key={marker.ref}
               position={marker.coords}
               // onClick={() => {this.infoWindowToggle(marker.ref); }}
