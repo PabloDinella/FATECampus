@@ -43,13 +43,13 @@ class PlacesListing extends Component {
   }
 
   render() {
-    const {classes, onPlaceSelect} = this.props
+    const {classes, onBuildingSelect, onFloorSelect, onPlaceSelect} = this.props
 
     return <List>
       {markers.map(({marker}) => {
         const key = `${marker.ref}`
         const collapsed = this.state.uncollapsedBuilding === key
-        return [<ListItem key={key} button onClick={() => {this.toggleBuildingCollapse(key); console.log(onPlaceSelect); onPlaceSelect(marker.coords, marker);}}>
+        return [<ListItem key={key} button onClick={() => {this.toggleBuildingCollapse(key); onBuildingSelect(marker.coords, marker);}}>
           <ListItemIcon><PlaceIcon /></ListItemIcon>
           <ListItemText inset primary={marker.name} />
         </ListItem>,
@@ -57,13 +57,13 @@ class PlacesListing extends Component {
           {marker.floors.map(({label, places}, index) => {
             const key = `${marker.ref}-${index}`
             const collapsed = this.state.uncollapsedFloor === key
-            return [<ListItem key={key} button className={classes.nested1} onClick={() =>{this.toggleFloorCollapse(key)}}>
+            return [<ListItem key={key} button className={classes.nested1} onClick={() =>{this.toggleFloorCollapse(key); onFloorSelect(_.merge(marker, {subtitle: label})); }}>
               <ListItemIcon><LayersIcon /></ListItemIcon>
               <ListItemText inset primary={label} />
               {collapsed ? <ExpandLess /> : <ExpandMore />}
             </ListItem>,
             <Collapse in={collapsed} key={`${key}_sub`}>
-              {places.map(({name}) => <ListItem key={`${marker.ref}_${index}_${name}`} button className={classes.nested2}>
+              {places.map(({name}) => <ListItem key={`${marker.ref}_${index}_${name}`} button className={classes.nested2} onClick={() => {onPlaceSelect(_.merge(marker, {subtitle: name, description: 'desccccc'}))}}>
                 <ListItemIcon><LabelIcon /></ListItemIcon>
                 <ListItemText inset primary={name} />
               </ListItem>)}

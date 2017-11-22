@@ -42,14 +42,15 @@ class MapView extends Component {
           {places.map(({marker}) => <Marker
               key={marker.ref}
               position={marker.coords}
-              // onClick={() => {this.infoWindowToggle(marker.ref); console.log('clicou no marker', {ref: marker.ref}, this.state.openInfoWindow);}}
-              onClick={() => {console.log(onMarkerClick);onMarkerClick({ref: marker.ref, title: marker.name, description: marker.description})}}
+              // onClick={() => {this.infoWindowToggle(marker.ref); }}
+              onClick={() => {onMarkerClick({ref: marker.ref, title: marker.name, description: marker.description})}}
               icon={placeMarkerIcon}
             >
             {(infoWindow.open && infoWindow.id === marker.ref)
               && <InfoWindow>
                 <div>
                   <h3>{infoWindow.title}</h3>
+                  <h4>{infoWindow.subtitle}</h4>
                   <p>{infoWindow.description}</p>
                 </div>
               </InfoWindow>}

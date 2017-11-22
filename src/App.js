@@ -3,6 +3,56 @@ import _ from 'lodash'
 import {TopBar, MapView, PlacesListing} from './components'
 import logo from './logo.svg'
 
+function teste() {
+  const input = [
+    {
+      value: 'Miss1',
+      children: [
+        { value: 'Miss2' },
+        { value: 'Hit1', children: [ { value: 'Miss3' } ] }
+      ]
+    },
+    {
+      value: 'Miss4',
+      children: [
+        { value: 'Miss5' },
+        { value: 'Miss6', children: [ { value: 'Hit2' } ] }
+      ]
+    },
+    {
+      value: 'Miss7',
+      children: [
+        { value: 'Miss8' },
+        { value: 'Miss9', children: [ { value: 'Miss10' } ] }
+      ]
+    },
+    {
+      value: 'Hit3',
+      children: [
+        { value: 'Miss11' },
+        { value: 'Miss12', children: [ { value: 'Miss13' } ] }
+      ]
+    },
+    {
+      value: 'Miss14',
+      children: [
+        { value: 'Hit4' },
+        { value: 'Miss15', children: [ { value: 'Miss16' } ] }
+      ]
+    },
+  ];
+
+  var res = input.filter(function f(o) {
+    if (o.value.includes("Hit")) return true
+
+    if (o.children) {
+      return (o.children = o.children.filter(f)).length
+    }
+  })
+  console.log(JSON.stringify(res, null, 2))
+
+}
+
 class App extends Component {
   constructor() {
     super()
@@ -11,19 +61,15 @@ class App extends Component {
       infoWindow: {
         id: null,
         title: null,
+        subtitle: null,
         description: null,
         open: false
       }
     }
+    teste()
   }
 
-  componentDidUpdate() {
-
-    console.log(this.state);
-  }
-
-
-  onPlaceSelect(coords) {
+  onBuildingSelect(coords) {
     this.setState({panToCoords: coords})
   }
 
@@ -31,9 +77,9 @@ class App extends Component {
     this.setState({infoWindow: newState})
   }
 
-  infoWindowToggle = ({ref, title, description}) => {
+  infoWindowToggle = ({ref, title, subtitle, description}) => {
     const {infoWindow, infoWindow: {id, open}} = this.state
-    const newInfoWindow = {id: ref, title, description, open: true}
+    const newInfoWindow = {id: ref, title, subtitle, description, open: true}
 
     if (_.isEqual(infoWindow, newInfoWindow)) {
       newInfoWindow.open = !open
@@ -64,7 +110,11 @@ class App extends Component {
             onMarkerClick={this.infoWindowToggle}
           />
         </header>
-        <PlacesListing onPlaceSelect={(coords, marker) => {this.onPlaceSelect(coords), this.infoWindowToggle({ref: marker.ref, title: marker.name, description: marker.description})}} />
+        <PlacesListing
+          onBuildingSelect={(coords, marker) => {this.onBuildingSelect(coords), this.infoWindowToggle({ref: marker.ref, title: marker.name, description: marker.description})}}
+          onFloorSelect={(marker) => this.infoWindowToggle({ref: marker.ref, title: marker.name, subtitle: marker.subtitle, description: marker.description})}
+          onPlaceSelect={(marker) => this.infoWindowToggle({ref: marker.ref, title: marker.name, subtitle: marker.subtitle, description: marker.description})}
+        />
       </div>
     )
   }
