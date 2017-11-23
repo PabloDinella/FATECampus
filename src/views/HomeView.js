@@ -43,14 +43,11 @@ class HomeView extends Component {
 
 
   render() {
-    const {history} = this.props
     const {infoWindow, searchQuery} = this.state
-
-    console.log(history);
 
     return (
       <div className="App">
-        <TopBar onSearch={this.onSearch} history={history} />
+        <TopBar onSearch={this.onSearch} />
         <header className="App-header">
           <MapView
             ref="map"

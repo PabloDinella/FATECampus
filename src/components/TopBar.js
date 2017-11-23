@@ -16,7 +16,6 @@ const styles = theme => ({
     flex: 1,
   },
   menuButton: {
-    marginLeft: -12,
     marginRight: 20,
   },
   searchInputContainer: {
@@ -41,12 +40,16 @@ class TopBar extends Component {
     }
   }
 
+  componentDidUpdate() {
+    this.state.searchOpen && this.refs.searchInput.focus()
+  }
+
   searchToggle = () => {
     this.setState({searchOpen: !this.state.searchOpen})
   }
 
   render() {
-    const {classes, onSearch, history} = this.props
+    const {classes, onSearch} = this.props
     const {searchOpen} = this.state
     const {searchToggle} = this
 
@@ -60,11 +63,11 @@ class TopBar extends Component {
             {!searchOpen && <IconButton className={classes.menuButton} color="contrast" aria-label="Menu">
               <MenuIcon />
             </IconButton>}
-            {!searchOpen && <Typography type="title" color="inherit" className={classes.flex} onClick={() => {history.push('/')}}>
+            {!searchOpen && <Typography type="title" color="inherit" className={classes.flex}>
               Campus <small>FATEC-SP</small>
             </Typography>}
             {searchOpen && <div className={classes.searchInputContainer}>
-              <input type="text" onChange={(event) => {onSearch(event.target.value)}} />
+              <input type="text" ref="searchInput" onChange={(event) => {onSearch(event.target.value)}} />
             </div>}
             <IconButton color="contrast" onClick={searchToggle}>
               <SearchIcon />
