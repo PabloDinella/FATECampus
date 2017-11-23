@@ -54,7 +54,7 @@ class App extends Component {
             isMarkerShown
             googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlDDOFcLe3m6SlveVfAS7dARz1ZDeNN8o&v=3.exp&libraries=geometry,drawing,places"
             loadingElement={<div style={{ height: `100%` }} />}
-            containerElement={<div style={{ height: `400px` }} />}
+            containerElement={<div style={{ height: `40vh` }} />}
             mapElement={<div style={{ height: `100%` }} />}
             defaultCenter={{lat: -23.529528, lng: -46.632713}}
             panToCoords={this.state.panToCoords}
