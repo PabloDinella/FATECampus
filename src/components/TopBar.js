@@ -69,9 +69,9 @@ class TopBar extends Component {
             {searchOpen && <div className={classes.searchInputContainer}>
               <input type="text" ref="searchInput" onChange={(event) => {onSearch(event.target.value)}} />
             </div>}
-            <IconButton color="contrast" onClick={searchToggle}>
+            {onSearch && <IconButton color="contrast" onClick={searchToggle}>
               <SearchIcon />
-            </IconButton>
+            </IconButton>}
           </Toolbar>
         </AppBar>
       </div>

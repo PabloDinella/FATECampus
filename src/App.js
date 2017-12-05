@@ -9,6 +9,7 @@ import List, {ListItem, ListItemIcon, ListItemText} from 'material-ui/List'
 import SvgIcon from 'material-ui/SvgIcon'
 
 import InfoOutlineIcon from 'material-ui-icons/InfoOutline'
+import HomeIcon from 'material-ui-icons/Home'
 
 const history = configureHistory()
 
@@ -45,6 +46,14 @@ class App extends Component {
                   <img src={fatecCampus} style={{width: '100%'}} alt="Campus da FATEC-SP visto do alto" />
                 </div>
                 <List>
+                  <ListItem
+                    component={Link}
+                    to="/">
+                    <ListItemIcon>
+                      <HomeIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Início" />
+                  </ListItem>
                   <ListItem onClick={() => {window.open('https://github.com/PabloDinella/FATECampus', '_blank')}}>
                     <ListItemIcon>
                         <SvgIcon>
@@ -53,7 +62,9 @@ class App extends Component {
                     </ListItemIcon>
                     <ListItemText primary="Código" />
                   </ListItem>
-                  <ListItem>
+                  <ListItem
+                    component={Link}
+                    to="/about">
                     <ListItemIcon>
                       <InfoOutlineIcon />
                     </ListItemIcon>
