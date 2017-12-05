@@ -49,7 +49,7 @@ class TopBar extends Component {
   }
 
   render() {
-    const {classes, onSearch} = this.props
+    const {classes, onSearch, toggleMenu} = this.props
     const {searchOpen} = this.state
     const {searchToggle} = this
 
@@ -61,7 +61,7 @@ class TopBar extends Component {
               <ArrowBackIcon />
             </IconButton>}
             {!searchOpen && <IconButton className={classes.menuButton} color="contrast" aria-label="Menu">
-              <MenuIcon />
+              <MenuIcon onClick={() => {toggleMenu()}} />
             </IconButton>}
             {!searchOpen && <Typography type="title" color="inherit" className={classes.flex}>
               Campus <small>FATEC-SP</small>

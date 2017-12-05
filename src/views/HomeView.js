@@ -43,11 +43,12 @@ class HomeView extends Component {
 
 
   render() {
+    const {toggleMenu} = this.props
     const {infoWindow, searchQuery} = this.state
 
     return (
       <div className="App">
-        <TopBar onSearch={this.onSearch} />
+        <TopBar onSearch={this.onSearch} toggleMenu={toggleMenu} />
         <header className="App-header">
           <MapView
             ref="map"
