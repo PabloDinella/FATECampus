@@ -45,6 +45,9 @@ class TopBar extends Component {
   }
 
   searchToggle = () => {
+    if (this.state.searchOpen) {
+      this.props.onSearch(null)
+    }
     this.setState({searchOpen: !this.state.searchOpen})
   }
 
