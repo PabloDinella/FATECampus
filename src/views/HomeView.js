@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import {findDOMNode} from 'react-dom'
 import withStyles from '../support/withStyles'
 import _ from 'lodash'
 import {TopBar, MapView, PlacesListing} from '../components'
@@ -19,11 +18,6 @@ const styles = theme => ({
     }
   }
 })
-
-function vh(v) {
-  var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-  return (v * h) / 100;
-}
 
 class HomeView extends Component {
   constructor() {

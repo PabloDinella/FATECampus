@@ -1,9 +1,6 @@
 import React from 'react'
 import {TopBar} from '../components'
 import Typography from 'material-ui/Typography'
-import IconButton from 'material-ui/IconButton'
-import SvgIcon from 'material-ui/SvgIcon'
-import LinkIcon from 'material-ui-icons/Link'
 
 const AboutView = ({toggleMenu}) => {
   return <div>
@@ -15,16 +12,16 @@ const AboutView = ({toggleMenu}) => {
       </Typography>
       <Typography type="title" gutterBottom>Código</Typography>
       <Typography type="body1" gutterBottom paragraph>
-        A versão mais recente do código deste app pode ser encontrado no <a href="https://github.com/PabloDinella/FATECampus" target="_blank">GitHub</a>. Licença MIT.
+        A versão mais recente do código deste app pode ser encontrado no <a href="https://github.com/PabloDinella/FATECampus" target="_blank" rel="noopener noreferrer">GitHub</a>. Licença MIT.
       </Typography>
       <Typography type="title" gutterBottom>Autor</Typography>
       <Typography type="body1" gutterBottom paragraph>
         Pablo R. Dinella
       </Typography>
       <Typography type="body1" gutterBottom paragraph>
-        <a href="//pablodinella.com/" target="_blank">pablodinella.com</a>
+        <a href="//pablodinella.com/" target="_blank" rel="noopener noreferrer">pablodinella.com</a>
         <br/>
-        <a href="//github.com/pablodinella" target="_blank">github.com/pablodinella</a>
+        <a href="//github.com/pablodinella" target="_blank" rel="noopener noreferrer">github.com/pablodinella</a>
       </Typography>
     </div>
   </div>
