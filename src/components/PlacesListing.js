@@ -75,7 +75,7 @@ class PlacesListing extends Component {
               {collapsed ? <ExpandLess /> : <ExpandMore />}
             </ListItem>,
             <Collapse in={searchQuery || collapsed} key={`${key}_sub`}>
-              {places.map(({name}) => <ListItem key={`${marker.ref}_${index}_${name}`} button className={classes.nested2} onClick={() => {onPlaceSelect(_.merge(marker, {subtitle: name, description: 'desccccc'}))}}>
+              {places.map(({name}) => <ListItem key={`${marker.ref}_${index}_${name}`} button className={classes.nested2} onClick={() => {onPlaceSelect(_.merge(marker, {subtitle: name, description: ''}))}}>
                 <ListItemIcon><LabelIcon /></ListItemIcon>
                 <ListItemText inset primary={name} />
               </ListItem>)}

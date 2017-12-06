@@ -58,7 +58,7 @@ class TopBar extends Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position="fixed">
           <Toolbar>
             {searchOpen && <IconButton className={classes.menuButton} color="contrast" aria-label="Voltar" onClick={searchToggle}>
               <ArrowBackIcon />

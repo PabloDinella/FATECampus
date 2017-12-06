@@ -1,6 +1,29 @@
 import React, {Component} from 'react'
+import {findDOMNode} from 'react-dom'
+import withStyles from '../support/withStyles'
 import _ from 'lodash'
 import {TopBar, MapView, PlacesListing} from '../components'
+
+const styles = theme => ({
+  mapContainer: {
+    marginTop: 56,
+    height: '60vh',
+    width: '100%',
+    position: 'fixed',
+    top: 0,
+  },
+  placesListing: {
+    marginTop: 'calc(60vh + 56px)',
+    '& ul': {
+      background: '#fff',
+    }
+  }
+})
+
+function vh(v) {
+  var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+  return (v * h) / 100;
+}
 
 class HomeView extends Component {
   constructor() {
@@ -41,37 +64,38 @@ class HomeView extends Component {
     this.setState({searchQuery: term})
   }
 
-
   render() {
-    const {toggleMenu} = this.props
+    const {classes, toggleMenu} = this.props
     const {infoWindow, searchQuery} = this.state
 
     return (
       <div className="App">
         <TopBar onSearch={this.onSearch} toggleMenu={toggleMenu} />
-        <header className="App-header">
+        <div ref="mapContainer" className={classes.mapContainer}>
           <MapView
             ref="map"
             isMarkerShown
             googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlDDOFcLe3m6SlveVfAS7dARz1ZDeNN8o&v=3.exp&libraries=geometry,drawing,places"
             loadingElement={<div style={{ height: `100%` }} />}
-            containerElement={<div style={{ height: `40vh` }} />}
+            containerElement={<div style={{ height: `100%` }} />}
             mapElement={<div style={{ height: `100%` }} />}
             defaultCenter={{lat: -23.529528, lng: -46.632713}}
             panToCoords={this.state.panToCoords}
             infoWindow={infoWindow}
             onMarkerClick={this.infoWindowToggle}
           />
-        </header>
-        <PlacesListing
-          onBuildingSelect={(coords, marker) => {this.onBuildingSelect(coords); this.infoWindowToggle({ref: marker.ref, title: marker.name, description: marker.description})}}
-          onFloorSelect={(marker) => this.infoWindowToggle({ref: marker.ref, title: marker.name, subtitle: marker.subtitle, description: marker.description})}
-          onPlaceSelect={(marker) => this.infoWindowToggle({ref: marker.ref, title: marker.name, subtitle: marker.subtitle, description: marker.description})}
-          searchQuery={searchQuery}
-        />
+        </div>
+        <div className={classes.placesListing}>
+          <PlacesListing
+            onBuildingSelect={(coords, marker) => {this.onBuildingSelect(coords); this.infoWindowToggle({ref: marker.ref, title: marker.name, description: marker.description})}}
+            onFloorSelect={(marker) => this.infoWindowToggle({ref: marker.ref, title: marker.name, subtitle: marker.subtitle, description: marker.description})}
+            onPlaceSelect={(marker) => this.infoWindowToggle({ref: marker.ref, title: marker.name, subtitle: marker.subtitle, description: marker.description})}
+            searchQuery={searchQuery}
+          />
+        </div>
       </div>
     )
   }
 }
 
-export default HomeView
+export default withStyles('HomeView', styles, HomeView)
