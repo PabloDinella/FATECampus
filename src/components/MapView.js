@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import _ from 'lodash'
-import overlayImage from '../assets/map-overlay.png'
+import overlayImage from '../assets/map-overlay1.png'
 import {withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow, GroundOverlay} from "react-google-maps"
 
 import placeMarkerIcon from '../assets/placeMarker.svg'
@@ -58,8 +58,10 @@ class MapView extends Component {
       <GroundOverlay
         defaultUrl={overlayImage}
         defaultBounds={new window.google.maps.LatLngBounds(
-          new window.google.maps.LatLng(-23.530292, -46.633573),
-          new window.google.maps.LatLng(-23.528390, -46.631799)
+          // new window.google.maps.LatLng(-23.530292, -46.633573),
+          // new window.google.maps.LatLng(-23.528390, -46.631799)
+          new window.google.maps.LatLng(-23.531104, -46.634377),
+          new window.google.maps.LatLng(-23.528572, -46.631589)
         )}
       />
     </GoogleMap>

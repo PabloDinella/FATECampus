@@ -1,7 +1,7 @@
 [
   {
-    "name": "Edifício Santiago",
-    "description": "Descrição do prédio",
+    "name": "Edifício Santhiago",
+    "description": "Departamentos, secretaria geral, salas e laboratórios",
     "coords": {"lat": -23.530062, "lng": -46.632454},
     "ref": "santhiago",
     "floors": [
@@ -67,13 +67,13 @@
             "name": "Sala 22S"
           },
           {
-            "name": "Laboratório de Informática 01 (azul)"
+            "name": "Laboratório de Informática 01"
           },
           {
-            "name": "Laboratório de Informática 02 (verde)"
+            "name": "Laboratório de Informática 02"
           },
           {
-            "name": "Laboratório de Informática 03 (amarelo)"
+            "name": "Laboratório de Informática 03"
           },
           {
             "name": "Laboratório de Informática 04"
@@ -121,7 +121,7 @@
         ]
       },
       {
-        "label": "Térreo",
+        "label": "Primeiro andar",
         "places":
         [
           {
@@ -147,6 +147,9 @@
           },
           {
             "name": "Sala 18A"
+          },
+          {
+            "name": "Sala 19A"
           }
         ]
       }
@@ -168,11 +171,11 @@
         ]
       },
       {
-        "label": "primeiro andar",
+        "label": "Primeiro andar",
         "places":
         [
           {
-            "name": "quadra polioesportiva"
+            "name": "Quadra polioesportiva"
           }
         ]
       }
@@ -180,7 +183,7 @@
   },
   {
     "name": "Centro Paula Souza",
-    "description": "Descrição do prédio",
+    "description": "",
     "coords": {"lat": -23.529984, "lng": -46.632901},
     "ref": "centropaulasouza",
     "floors": [
@@ -197,7 +200,7 @@
   },
   {
     "name": "Edifício Oscar Machado",
-    "description": "Descrição do prédio",
+    "description": "",
     "coords": {"lat": -23.529700, "lng": -46.633123},
     "ref": "oscarmachado",
     "floors": [
@@ -214,7 +217,7 @@
   },
   {
     "name": "Edifício Francisco Maffei",
-    "description": "Descrição do prédio",
+    "description": "Departamentos, salas",
     "coords": {"lat": -23.528934, "lng": -46.632990},
     "ref": "maffei",
     "floors": [
@@ -231,7 +234,7 @@
   },
   {
     "name": "Bloco D",
-    "description": "Descrição do prédio",
+    "description": "",
     "coords": {"lat": -23.529008, "lng": -46.632791},
     "ref": "blocod",
     "floors": [
